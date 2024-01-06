@@ -91,9 +91,9 @@
 
             async function fetchCodeSnippets() {
                 try {
-                    const response = await fetch('https://gist.githubusercontent.com/vaibhav-gupta-haptik/ff764fdb9155ceaff064402ee35db0b1/raw/cfb1955e1cd3b2ed28227757151e39ece49b865f/code_snippets.json');
+                    const response = await fetch('https://api.github.com/gists/ff764fdb9155ceaff064402ee35db0b1');
                     const data = await response.json();
-                    return data;
+                    return JSON.parse(data.files.code_snippets.content);
                 } catch (error) {
                     console.error('Error fetching code snippets:', error);
                     return [];
